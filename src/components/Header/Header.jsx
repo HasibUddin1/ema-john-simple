@@ -4,7 +4,7 @@ import './Header.css'
 
 const Header = () => {
     return (
-        <div className='bg-slate-900 h-20 flex items-center justify-between p-10'>
+        <div className='bg-slate-900 h-20 flex items-center justify-between px-20'>
             <div>
                 <img src={logo} alt="" />
             </div>
