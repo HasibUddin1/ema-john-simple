@@ -3,6 +3,8 @@ import './Product.css'
 
 const Product = (props) => {
     const { name, img, price, ratings, seller } = props.product
+    const handleAddToCart = props.handleAddToCart
+
     return (
         <div id='product' className='product rounded-lg relative'>
             <img className='rounded-lg p-2' src={img} alt="" />
@@ -12,7 +14,7 @@ const Product = (props) => {
                 <p className='font-semibold mt-3 mb-3'>Manufacturer: {seller}</p>
                 <p className='font-semibold mt-3 mb-3'>Ratings: {ratings} Stars</p>
             </div>
-            <button className='bg-[#FFE0B3] w-full font-semibold hover:bg-orange-400 ease-in-out duration-200 h-12 btn-cart absolute bottom-0'>Add to Cart</button>
+            <button onClick={() => handleAddToCart(props.product)} className='bg-[#FFE0B3] w-full font-semibold hover:bg-orange-400 ease-in-out duration-200 h-12 btn-cart absolute bottom-0'>Add to Cart</button>
         </div>
     );
 };
