@@ -4,11 +4,16 @@ import './Cart.css'
 const Cart = ({ cart }) => {
 
 
-    let totalPrice = 0
-    let totalShipping = 0
+    let totalPrice = 0;
+    let totalShipping = 0;
+    let quantity = 0;
     for(const product of cart){
-        totalPrice = totalPrice + product.price
+        if(!product.quantity){
+            product.quantity = 1
+        }
+        totalPrice = totalPrice + product.price * product.quantity
         totalShipping = totalShipping + product.shipping
+        quantity = quantity + product.quantity
     }
 
     const tax = totalPrice*7/100
@@ -18,7 +23,7 @@ const Cart = ({ cart }) => {
         <div className='bg-[#FFE0B3] h-screen order-container'>
             <div className='px-5'>
                 <h1 className='text-4xl font-bold pt-5 mb-10'>Order Summery</h1>
-                <p className='text-2xl mt-4 mb-5'>Selected Items: {cart.length}</p>
+                <p className='text-2xl mt-4 mb-5'>Selected Items: {quantity}</p>
                 <p className='text-xl mb-5'>Total Price: ${totalPrice}</p>
                 <p className='text-xl mb-5'>Total Shipping Cost: ${totalShipping}</p>
                 <p className='text-xl mb-5'>Tax: ${tax.toFixed(2)}</p>
