@@ -3,4 +3,6 @@
 }
 .btn-cart{
     border-top: 1px solid #95A0A7;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
