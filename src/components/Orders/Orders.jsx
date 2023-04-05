@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Cart from '../Cart/Cart';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
 
@@ -36,7 +36,11 @@ const Orders = () => {
                     <Cart 
                         cart={cart}
                         handleClearCart={handleClearCart}
-                    ></Cart>
+                    >
+                        <Link className='flex justify-center items-center' to='/checkout'>
+                            <button className='bg-[#FF9900] hover:bg-orange-500 ease-in-out duration-200 w-96 py-2 text-white font-bold rounded-xl mt-5'>Proceed Checkout</button>
+                        </Link>
+                    </Cart>
                 </div>
             </div>
         </div>

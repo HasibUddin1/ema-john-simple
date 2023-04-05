@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cart.css'
 
-const Cart = ({ cart, handleClearCart }) => {
+const Cart = ({ cart, handleClearCart, children }) => {
 
 
     let totalPrice = 0;
@@ -31,6 +31,7 @@ const Cart = ({ cart, handleClearCart }) => {
                 <div className='flex justify-center items-center'>
                     <button onClick={handleClearCart} className='bg-[#FF3030] hover:bg-red-700 ease-in-out duration-200 text-white w-96 py-2 mt-5 font-bold rounded-xl'>Clear Cart</button>
                 </div>
+                {children}
             </div>
         </div>
     );
