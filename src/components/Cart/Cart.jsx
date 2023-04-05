@@ -1,14 +1,14 @@
 import React from 'react';
 import './Cart.css'
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, handleClearCart }) => {
 
 
     let totalPrice = 0;
     let totalShipping = 0;
     let quantity = 0;
-    for(const product of cart){
-        if(!product.quantity){
+    for (const product of cart) {
+        if (!product.quantity) {
             product.quantity = 1
         }
         totalPrice = totalPrice + product.price * product.quantity
@@ -16,7 +16,7 @@ const Cart = ({ cart }) => {
         quantity = quantity + product.quantity
     }
 
-    const tax = totalPrice*7/100
+    const tax = totalPrice * 7 / 100
     const grandTotal = totalPrice + totalShipping + tax
 
     return (
@@ -28,6 +28,9 @@ const Cart = ({ cart }) => {
                 <p className='text-xl mb-5'>Total Shipping Cost: ${totalShipping}</p>
                 <p className='text-xl mb-5'>Tax: ${tax.toFixed(2)}</p>
                 <h6 className='text-2xl font-semibold'>Grand Total: ${grandTotal.toFixed(2)}</h6>
+                <div className='flex justify-center items-center'>
+                    <button onClick={handleClearCart} className='bg-[#FF3030] hover:bg-red-700 ease-in-out duration-200 text-white w-96 py-2 mt-5 font-bold rounded-xl'>Clear Cart</button>
+                </div>
             </div>
         </div>
     );

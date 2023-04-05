@@ -31,10 +31,13 @@ const getShoppingCart = () => {
     return shoppingCart;
 }
 
-
+const deleteShoppingCart = () => {
+    localStorage.removeItem('shopping-cart')
+}
 
 export {
     addToDb,
     removeFromDb,
-    getShoppingCart
+    getShoppingCart,
+    deleteShoppingCart
 }
