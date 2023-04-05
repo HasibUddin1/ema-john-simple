@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../images/Logo.svg'
 import './Header.css'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -9,10 +10,10 @@ const Header = () => {
                 <img src={logo} alt="" />
             </div>
             <div className='text-white flex gap-5 anchors'>
-                <a className='font-semibold' href="/order">Order</a>
-                <a className='font-semibold' href="/review">Order Review</a>
-                <a className='font-semibold' href="/inventory">Manage Inventory</a>
-                <a className='font-semibold' href="/login">Login</a>
+                <Link className='font-semibold' to="/">Shop</Link>
+                <Link className='font-semibold' to="/orders">Orders</Link>
+                <Link className='font-semibold' to="/inventory">Inventory</Link>
+                <Link className='font-semibold' to="/login">Login</Link>
             </div>
         </div>
     );
