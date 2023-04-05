@@ -38,7 +38,7 @@ const Orders = () => {
                         handleClearCart={handleClearCart}
                     >
                         <Link className='flex justify-center items-center' to='/checkout'>
-                            <button className='bg-[#FF9900] hover:bg-orange-500 ease-in-out duration-200 w-96 py-2 text-white font-bold rounded-xl mt-5'>Proceed Checkout</button>
+                            <button className='bg-[#FF9900] hover:bg-orange-500 ease-in-out duration-200 w-96 py-2 text-white font-bold rounded-lg mt-5'>Proceed Checkout</button>
                         </Link>
                     </Cart>
                 </div>

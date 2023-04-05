@@ -29,7 +29,7 @@ const Cart = ({ cart, handleClearCart, children }) => {
                 <p className='text-xl mb-5'>Tax: ${tax.toFixed(2)}</p>
                 <h6 className='text-2xl font-semibold'>Grand Total: ${grandTotal.toFixed(2)}</h6>
                 <div className='flex justify-center items-center'>
-                    <button onClick={handleClearCart} className='bg-[#FF3030] hover:bg-red-700 ease-in-out duration-200 text-white w-96 py-2 mt-5 font-bold rounded-xl'>Clear Cart</button>
+                    <button onClick={handleClearCart} className='bg-[#FF3030] hover:bg-red-700 ease-in-out duration-200 text-white w-96 py-2 mt-5 font-bold rounded-lg'>Clear Cart</button>
                 </div>
                 {children}
             </div>

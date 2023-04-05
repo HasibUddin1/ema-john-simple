@@ -51,7 +51,7 @@ const Shop = () => {
                     handleClearCart={handleClearCart}
                 >
                     <Link to='/orders'>
-                        <button className='bg-[#FF9900] hover:bg-orange-500 ease-in-out duration-200 text-white w-96 mt-5 py-2 rounded-xl font-bold'>Review Order</button>
+                        <button className='bg-[#FF9900] hover:bg-orange-500 ease-in-out duration-200 text-white w-96 mt-5 py-2 rounded-lg font-bold'>Review Order</button>
                     </Link>
                 </Cart>
             </div>
