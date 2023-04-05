@@ -4,3 +4,7 @@
 .review-item img{
     height: 91px;
 }
+.btn-delete{
+    height: 55px;
+    width: 55px;
+}
