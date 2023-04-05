@@ -16,7 +16,7 @@ const ReviewItem = ({ product }) => {
                     <h2>Quantity: <span className='text-yellow-500 font-bold'>{quantity}</span></h2>
                 </div>
             </div>
-            <button className='bg-red-300 hover:bg-red-400 ease-in-out duration-200 rounded-full btn-delete'><FontAwesomeIcon className='text-red-600' icon={faTrashAlt} /></button>
+            <button className='bg-red-300 hover:bg-red-400 ease-in-out duration-200 rounded-full btn-delete'><FontAwesomeIcon className='text-red-600 text-xl' icon={faTrashAlt} /></button>
         </div>
     );
 };
