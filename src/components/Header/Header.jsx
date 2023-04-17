@@ -8,6 +8,16 @@ const Header = () => {
 
     const {user, logOut} = useContext(AuthContext)
 
+    const handleLogout = () => {
+        logOut()
+        .then(() => {
+
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    }
+
     return (
         <div className='bg-slate-900 h-20 flex items-center justify-between px-20'>
             <div>
@@ -19,7 +29,7 @@ const Header = () => {
                 <Link className='font-semibold' to="/inventory">Inventory</Link>
                 <Link className='font-semibold' to="/login">Login</Link>
                 <Link className='font-semibold' to="/sign-up">Sign Up</Link>
-                {user && <span>{user.displayName}</span>}
+                {user && <span>{user.email} <button onClick={handleLogout} className='bg-[#FFE0B3] hover:bg-[#FF9900] ease-in-out duration-200 ml-2 text-black font-semibold px-4 rounded-full'>Log Out</button> </span>}
             </div>
         </div>
     );
