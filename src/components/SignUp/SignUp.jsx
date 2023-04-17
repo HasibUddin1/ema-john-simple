@@ -6,7 +6,7 @@ const SignUp = () => {
 
     const [error, setError] = useState('')
 
-    const {user} = useContext(AuthContext)
+    const {createUser} = useContext(AuthContext)
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -17,6 +17,7 @@ const SignUp = () => {
         const confirm = form.confirm.value
         console.log(email, password , confirm)
 
+        setError('')
         if(password !== confirm){
             setError('Your password did not match')
             return
@@ -24,6 +25,17 @@ const SignUp = () => {
         else if(password.length < 8){
             setError('Your password must be 8 characters long')
         }
+
+        createUser(email, password)
+        .then(result => {
+            const registeredUser = result.user
+            console.log(registeredUser)
+            form.reset()
+        })
+        .catch(error => {
+            console.log(error)
+            setError(error.message)
+        })
     }
 
     return (
@@ -46,7 +58,6 @@ const SignUp = () => {
             <p className='text-center mt-2 font-semibold'>Already an Account ? <Link className='text-[#FF9900]' to='/login'>Please Login</Link></p>
             </form>
             {error && <h4 className='text-red-500 font-semibold text-2xl text-center'>Error: {error}</h4>}
-            {user && <h4>{user.displayName}</h4>}
         </div>
     );
 };
