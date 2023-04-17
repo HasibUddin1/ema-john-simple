@@ -8,6 +8,8 @@ const Login = () => {
 
     const [success, setSuccess] = useState('')
 
+    const [show, setShow] = useState(false)
+
     const { signIn } = useContext(AuthContext)
 
     const navigate = useNavigate()
@@ -52,7 +54,14 @@ const Login = () => {
                 </div>
                 <div className='mb-10'>
                     <label className='block mb-2 font-semibold' htmlFor="password">Password</label>
-                    <input className='border-2 w-full rounded-lg h-[55px] text-xl' type="password" name="password" id="password" required />
+                    <input className='border-2 w-full rounded-lg h-[55px] text-xl' type={show ? "text" : "password"} name="password" id="password" required />
+                    <p onClick={() => setShow(!show)}>
+                        <small>
+                            {show ?
+                                <span className='cursor-pointer'>Hide Password</span> :
+                                <span className='cursor-pointer'>Show Password</span>}
+                        </small>
+                    </p>
                 </div>
                 <input className='text-xl font-semibold bg-[#FF9900] bg-opacity-30 hover:bg-opacity-70 ease-in-out duration-200 w-full py-4 rounded-lg' type="submit" value="Login" />
                 <p className='text-center mt-2 font-semibold'>New to Ema-John? <Link className='text-[#FF9900]' to='/sign-up'>Create New Account</Link></p>
