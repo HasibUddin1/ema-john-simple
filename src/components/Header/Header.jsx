@@ -14,6 +14,7 @@ const Header = () => {
                 <Link className='font-semibold' to="/orders">Orders</Link>
                 <Link className='font-semibold' to="/inventory">Inventory</Link>
                 <Link className='font-semibold' to="/login">Login</Link>
+                <Link className='font-semibold' to="/sign-up">Sign Up</Link>
             </div>
         </div>
     );
