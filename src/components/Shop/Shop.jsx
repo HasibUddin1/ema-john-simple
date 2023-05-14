@@ -68,7 +68,7 @@ const Shop = () => {
             </div>
             <div className='flex gap-5 justify-center mb-10'>
                 {
-                    pageNumbers.map(number => <button className='px-6 py-2 bg-[#FFE0B3] hover:bg-orange-500 ease-in-out duration-200  rounded-lg font-bold' key={number}>{number}</button>)
+                    pageNumbers.map(number => <button className='px-6 py-2 bg-[#FFE0B3] hover:bg-orange-400 ease-in-out duration-200  rounded-lg font-bold' key={number}>{number}</button>)
                 }
             </div>
         </>
