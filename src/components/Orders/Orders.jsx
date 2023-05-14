@@ -9,7 +9,7 @@ const Orders = () => {
     const [cart, setCart] = useState(addedProductsCart)
 
     const handleRemoveFromCart = id => {
-        const remaining = cart.filter(product => product.id !== id)
+        const remaining = cart.filter(product => product._id !== id)
         setCart(remaining)
         removeFromDb(id)
     }
@@ -26,7 +26,7 @@ const Orders = () => {
                 <div className='col-span-2 mx-auto mt-10 flex flex-col gap-5'>
                     {
                         cart.map(product => <ReviewItem
-                            key={product.id}
+                            key={product._id}
                             product={product}
                             handleRemoveFromCart={handleRemoveFromCart}
                         ></ReviewItem>)
