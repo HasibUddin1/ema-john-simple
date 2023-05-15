@@ -9,7 +9,10 @@ const Shop = () => {
 
     const { totalProducts } = useLoaderData()
 
-    const itemsPerPage = 10;
+    const [itemsPerPage, setItemsPerPage] = useState(10)
+
+    const [currentPage, setCurrentPage] = useState(0)
+
 
     const totalPages = Math.ceil(totalProducts / itemsPerPage)
 
@@ -46,6 +49,11 @@ const Shop = () => {
         setCart([])
         deleteShoppingCart()
     }
+    const handleChangeItemsPerPage = (event) => {
+        const newItemsPerPage = parseInt(event.target.value);
+        setCurrentPage(0);
+        setItemsPerPage(newItemsPerPage);
+    };
 
     return (
         <>
@@ -66,10 +74,20 @@ const Shop = () => {
                     </Cart>
                 </div>
             </div>
+            <p className='text-2xl text-center font-bold mb-3'>Current Page: {currentPage}</p>
             <div className='flex gap-5 justify-center mb-10'>
                 {
-                    pageNumbers.map(number => <button className='px-6 py-2 bg-[#FFE0B3] hover:bg-orange-400 ease-in-out duration-200  rounded-lg font-bold' key={number}>{number}</button>)
+                    pageNumbers.map(number => <button
+                        onClick={() => setCurrentPage(number)}
+                        className={currentPage === number ?
+                            'px-6 py-2 bg-orange-600 rounded-lg font-bold' : 
+                            'px-6 py-2 bg-[#FFE0B3] hover:bg-orange-400 ease-in-out duration-200  rounded-lg font-bold'} key={number}>{number}</button>)
                 }
+                <select value={itemsPerPage} onChange={handleChangeItemsPerPage}>
+                    <option value={5}>5</option>
+                    <option value={10}>10</option>
+                    <option value={20}>20</option>
+                </select>
             </div>
         </>
     );
