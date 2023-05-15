@@ -30,16 +30,33 @@ const Shop = () => {
     }, [currentPage, itemsPerPage])
     useEffect(() => {
         const storedCart = getShoppingCart()
-        const savedCart = []
-        for (const id in storedCart) {
-            const addedProduct = products.find(product => product._id === id)
-            const quantity = storedCart[id]
-            if (addedProduct) {
-                addedProduct.quantity = quantity
-                savedCart.push(addedProduct)
-            }
-        }
-        setCart(savedCart)
+        const ids = Object.keys(storedCart)
+        // console.log(ids)
+
+        fetch('http://localhost:5000/productsByID', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(ids)
+        })
+            .then(res => res.json())
+            .then(selectedProducts => {
+                // console.log(selectedProducts)
+                const savedCart = []
+                for (const id in storedCart) {
+                    const addedProduct = selectedProducts.find(product => product._id === id)
+                    const quantity = storedCart[id]
+                    if (addedProduct) {
+                        addedProduct.quantity = quantity
+                        savedCart.push(addedProduct)
+                    }
+                }
+                setCart(savedCart)
+            })
+
+
+
     }, [products])
 
     const handleAddToCart = (product) => {
@@ -83,8 +100,8 @@ const Shop = () => {
                     pageNumbers.map(number => <button
                         onClick={() => setCurrentPage(number)}
                         className={currentPage === number ?
-                            'px-6 py-2 bg-orange-600 rounded-lg font-bold' : 
-                            'px-6 py-2 bg-[#FFE0B3] hover:bg-orange-400 ease-in-out duration-200  rounded-lg font-bold'} key={number}>{number}</button>)
+                            'px-6 py-2 bg-orange-600 rounded-lg font-bold' :
+                            'px-6 py-2 bg-[#FFE0B3] hover:bg-orange-400 ease-in-out duration-200  rounded-lg font-bold'} key={number}>{number + 1}</button>)
                 }
                 <select value={itemsPerPage} onChange={handleChangeItemsPerPage}>
                     <option value={5}>5</option>
