@@ -21,10 +21,13 @@ const Shop = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+        const fetchData = async () => {
+            const response = await fetch(`http://localhost:5000/products?page=${currentPage}&limit=${itemsPerPage}`)
+            const data = await response.json()
+            setProducts(data)
+        }
+        fetchData()
+    }, [currentPage, itemsPerPage])
     useEffect(() => {
         const storedCart = getShoppingCart()
         const savedCart = []
