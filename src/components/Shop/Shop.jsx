@@ -57,7 +57,7 @@ const Shop = () => {
 
 
 
-    }, [products])
+    }, [])
 
     const handleAddToCart = (product) => {
         const newCart = [...cart, product]
