@@ -33,7 +33,7 @@ const Shop = () => {
         const ids = Object.keys(storedCart)
         // console.log(ids)
 
-        fetch('http://localhost:5000/productsByID', {
+        fetch('https://ema-john-server-swart.vercel.app/productsByID', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
