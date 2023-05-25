@@ -22,7 +22,7 @@ const Shop = () => {
     const [cart, setCart] = useState([])
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch(`http://localhost:5000/products?page=${currentPage}&limit=${itemsPerPage}`)
+            const response = await fetch(`https://ema-john-server-swart.vercel.app/products?page=${currentPage}&limit=${itemsPerPage}`)
             const data = await response.json()
             setProducts(data)
         }
