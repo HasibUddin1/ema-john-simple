@@ -94,7 +94,7 @@ const Shop = () => {
                     </Cart>
                 </div>
             </div>
-            <p className='text-2xl text-center font-bold mb-3'>Current Page: {currentPage}</p>
+            {/* <p className='text-2xl text-center font-bold mb-3'>Current Page: {currentPage}</p> */}
             <div className='flex gap-5 justify-center mb-10'>
                 {
                     pageNumbers.map(number => <button
